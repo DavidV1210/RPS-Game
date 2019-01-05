@@ -1,288 +1,234 @@
 <!DOCTYPE html>
 <html>
 <header>
-  <meta charset="UTF-8">
-  <title> rock paper scissors app</title>
-
-  <!--CSS for body background  "floating monks" image-->
-  <style>
+    <meta charset="UTF-8">
+    <title> rock paper scissors app</title>
+    <style>
     body {
-      background-image: url("https://vignette.wikia.nocookie.net/mkwikia/images/9/9d/Portal.png/revision/latest?cb=20070829134005");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      background-size: cover;
-      background-color: orangered;
+        background-image: url("https://vignette.wikia.nocookie.net/mkwikia/images/9/9d/Portal.png/revision/latest?cb=20070829134005") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: orangered;     
+        }
 
-    }
-  </style>
-  <!--CSS for text "lets play some rock paper scissors" img -->
-  <style>
     img.a {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
     img.b {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      position: absolute;
-      top: 230px;
-      bottom: 50px;
-      right: 50px;
-      left: 50px;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        top: 230px; 
+        bottom:50px;
+        right:50px;
+        left:50px;
     }
-  </style>
 
-  <!---CSS for buttons-->
-  <style>
     .button {
-      background-color: silver;
-      position: relative;
-      top: 105px;
-      border: none;
-      color: black;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      font-size: 25px;
-      margin: 4px 2px;
-      cursor: pointer;
-      box-shadow: 0px 0px 5em;
+        background-color:silver;
+        position: relative;
+        top: 105px;
+        border: none;
+        color:black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 25px;
+        margin: 4px 2px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5em;
     }
-  </style>
-
-  <style>
-    .button2 {
-      background-color: silver;
-      position: relative;
-      border: none;
-      padding: 15px 32px;
-      text-align: center;
-      display: block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      box-shadow: 0px 0px 5em;
-      left: 557px;
-      top: -400px
-    }
-  </style>
-  <!--CSS for rock, paper, scissors imgs-->
-  <style>
+  
     .rock {
-      transform: rotate(90deg);
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      left: 320px;
-      top: 215px;
-      display: none;
+        transform: rotate(90deg); 
+        width: 160px;
+        height:160px;
+        position: absolute;
+        left: 330px;
+        top: 215px; 
+        display: none;
     }
 
-    .paper {
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      left: 320px;
-      top: 215px;
-      display: none;
+    .paper { 
+        width: 160px;
+        height:160px;
+        position: absolute;
+        left: 330px;
+        top: 215px; 
+        display: none;
     }
 
     .scissors {
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      left: 320px;
-      top: 215px;
-      display: none;
+        width: 160px;
+        height:160px;
+        position:absolute;
+        left: 330px;
+        top: 215px; 
+       display: none;
     }
-  </style>
-
-  <style>
+   
     h2 {
-      color: black;
-      font-size: 65px;
-      position: relative;
-      left: 436px;
-      top: 150px;
+        color:rgb(171, 183, 184);
+        font-size: 50px;
+        position: relative;
+        left:420px;
+        top: -150px;
     }
-  </style>
-
-  <style>
+    
     div {
-      color: white;
-      font-size: 20px;
-      position: relative;
-      left: 500px;
-      top: -400px
-    }
-  </style>
-
-  <!-- audio snippets and music below-->
-
-  <script>
-    //delay for "fight!" audio
-    setTimeout(play, 2000);
-
-    function play() {
-      let audio = new Audio("http://www.smspower.org/forums/files/mortal_kombat_ii__fight_134.mp3");
-      audio.play();
-    }
-    //laugh button
-    function laugh() {
-      let audio = new Audio("https://www.myinstants.com/media/sounds/mkringtone_t9ozpmnv.mp3");
-      audio.play();
-    }
-    //toasty button
-    function toasty() {
-      let toast = new Audio("http://soundfxcenter.com/video-games/mortal-kombat-3-trilogy/8d82b5_Mortal_Kombat_3_Toasty_Sound_Effect.mp3");
-      toast.play();
-    }
-    //outstanding button
-    function outstanding() {
-      let outstanding = new Audio("http://soundfxcenter.com/video-games/mortal-kombat-4/8d82b5_Mortal_Kombat_4_Outstanding_Sound_Effect.mp3");
-      outstanding.play();
-    }
-    //display image functions
-    function rockImg() {
-      document.getElementById('rock2').style.display = "block";
-      document.getElementById('scissors2').style.display = 'none';
-      document.getElementById('paper2').style.display = 'none';
+        color:silver;
+        font-size: 20px; 
+        position: relative;
+        left:500px;
+        top: -400px
     }
 
-    function paperImg() {
-      document.getElementById('paper2').style.display = 'block'
-      document.getElementById('rock2').style.display = 'none';
-      document.getElementById('scissors2').style.display = 'none';
+    .computer {
+        display:block;
+        width:160px;
+        height:160px;
+        position:relative;
+        left:720px;
+        top:-92px;
     }
 
-    function scissorsImg() {
-      document.getElementById('scissors2').style.display = 'block'
-      document.getElementById('rock2').style.display = "none";
-      document.getElementById('paper2').style.display = "none";
+    p {
+        position:relative;
+        color:white;
     }
-  </script>
-  <!-- Round one sound-->
-  <audio autoplay>
-    <source src="http://soundfxcenter.com/video-games/mortal-kombat-vs-dc-universe/8d82b5_MK_vs_DCU_Round_One_Sound_Effect.mp3" type="audio/mp3">
+    
+    </style>
+    <audio autoplay>
+    <source src='http://soundfxcenter.com/video-games/mortal-kombat-vs-dc-universe/8d82b5_MK_vs_DCU_Round_One_Sound_Effect.mp3' type='audio/mp3'>
     </audio>
-  <!-- background music-->
-  <audio autoplay>
-    <source src="http://66.90.93.122/ost/mortal-kombat-3-snes-enhanced-sound-1995/jsglznxw/17%20-%20The%20Bridge.mp3" type="audio/mp3">
+    <audio autoplay>
+    <source src='http://66.90.93.122/ost/mortal-kombat-3-snes-enhanced-sound-1995/jsglznxw/17%20-%20The%20Bridge.mp3' type='audio/mp3'>
     </audio>
-
-  <!--lets play some rock paper scissors text "img" not "text-->
-  <img class='a' src="https://fontmeme.com/permalink/190101/cc1f29eb630472d522ec08c92317692c.png" alt="mortal-kombat-font">
-
-  <script>
-    function useRock() {
-      var rock = document.getElementById('rock').value;
-      document.getElementById("weapon").innerHTML = rock;
+    
+        <img class= 'a'src='https://fontmeme.com/permalink/190101/cc1f29eb630472d522ec08c92317692c.png' alt='mortal-kombat-font'>
+    <script>
+    setTimeout(play,2000);
+        function play(){
+             let audio = new Audio('http://www.smspower.org/forums/files/mortal_kombat_ii__fight_134.mp3');
+             audio.play();
+        }
+    
+        function laugh(){
+            let audio = new Audio('https://www.myinstants.com/media/sounds/mkringtone_t9ozpmnv.mp3');
+            audio.play();
+        }
+    
+        function toasty(){
+            let toast = new Audio('http://soundfxcenter.com/video-games/mortal-kombat-3-trilogy/8d82b5_Mortal_Kombat_3_Toasty_Sound_Effect.mp3');
+            toast.play();
+        }
+    
+        function outstanding(){
+            let outstanding = new Audio('http://soundfxcenter.com/video-games/mortal-kombat-4/8d82b5_Mortal_Kombat_4_Outstanding_Sound_Effect.mp3');
+             outstanding.play();
+        }   
+        
+        function rockImg(){document.getElementById('rock2').style.display= "block";
+        document.getElementById('scissors2').style.display= 'none';
+        document.getElementById('paper2').style.display='none';
+        }
+        function paperImg(){document.getElementById('paper2').style.display='block'
+        document.getElementById('rock2').style.display='none';
+        document.getElementById('scissors2').style.display='none';
+        }
+       
+        function scissorsImg(){document.getElementById('scissors2').style.display ='block'
+        document.getElementById('rock2').style.display= 'none';
+        document.getElementById('paper2').style.display='none';
+        }
+              
+function useRock(){
+var rock = document.getElementById('rock').value;
+document.getElementById('weapon').innerHTML = rock;
+}
+function getComputerChoice() {randomNumber = Math.floor(Math.random() * 3)
+switch (randomNumber){
+    case 0 : 
+    return 'rock';
+    break;
+    case 1 : 
+    return 'paper';
+    break;
+    case 2 : 
+    return 'scissors';
+    break;
+}
+}
+function determineWinner1(computerChoice){
+    if(computerChoice === 'rock'){ 
+        document.getElementById("winLose2").innerHTML= 'Tie!';}
+    if(computerChoice === 'paper'){ 
+        document.getElementById("winLose2").innerHTML= 'You Lose!';}
+    if(computerChoice === 'scissors'){
+        document.getElementById("winLose2").innerHTML= 'You Win!';}
+}
+function fight(){
+    computerChoice = getComputerChoice();
+    document.getElementById('winLose').innerHTML = `the computer threw ${computerChoice}`;
+    determineWinner1(computerChoice);
     }
 
-    function getComputerChoice() {
-      randomNumber = Math.floor(Math.random() * 3)
-      switch (randomNumber) {
-        case 0:
-          return 'rock';
-          break;
-        case 1:
-          return 'paper';
-          break;
-        case 2:
-          return 'scissors';
-          break;
-      }
+function usePaper(){
+    var paper = document.getElementById('paper').value;
+    document.getElementById('weapon').innerHTML = paper;
+    }
+     
+function determineWinner2(computerChoice){
+    if(computerChoice === 'rock') { 
+            document.getElementById("winLose2").innerHTML= 'You Win!';}
+    if(computerChoice === 'paper'){ 
+            document.getElementById("winLose2").innerHTML= 'Tie!';}
+    if(computerChoice === 'scissors'){
+            document.getElementById("winLose2").innerHTML= 'You Lose!';}
+    }
+function fight2(){
+    computerChoice = getComputerChoice();
+    document.getElementById('winLose').innerHTML = `the computer threw ${computerChoice}`;
+    determineWinner2(computerChoice);
     }
 
-    function determineWinner1(computerChoice) {
-      if (computerChoice === 'rock') {
-        document.getElementById("winLose2").innerHTML = "Tie!";
-      }
-      if (computerChoice === 'paper') {
-        document.getElementById("winLose2").innerHTML = "You Lose!";
-      }
-      if (computerChoice === 'scissors') {
-        document.getElementById("winLose2").innerHTML = "You Win!";
-      }
+function useScissors(){
+    var scissors = document.getElementById('scissors').value;
+    document.getElementById('weapon').innerHTML = scissors;
     }
-
-    function fight() {
-      computerChoice = getComputerChoice();
-      document.getElementById("winLose").innerHTML = `you threw ${rock.value} <br> the computer threw ${computerChoice}`;
-      determineWinner1(computerChoice);
+function determineWinner3(computerChoice){
+    if(computerChoice === 'rock') { 
+            document.getElementById('winLose2').innerHTML= 'You Lose!';}
+    if(computerChoice === 'paper'){ 
+            document.getElementById('winLose2').innerHTML= 'You Win!';}
+    if(computerChoice === 'scissors'){
+            document.getElementById('winLose2').innerHTML= 'You Tie!';}
+        }
+function fight3(){
+    computerChoice = getComputerChoice();
+    document.getElementById('winLose').innerHTML = `the computer threw ${computerChoice}`;
+    determineWinner3(computerChoice);
     }
-  </script>
-  <script>
-    function usePaper() {
-      var paper = document.getElementById('paper').value;
-      document.getElementById("weapon").innerHTML = paper;
-    }
-
-    function determineWinner2(computerChoice) {
-      if (computerChoice === 'rock') {
-        document.getElementById("winLose2").innerHTML = "You Win!";
-      }
-      if (computerChoice === 'paper') {
-        document.getElementById("winLose2").innerHTML = "Tie!";
-      }
-      if (computerChoice === 'scissors') {
-        document.getElementById("winLose2").innerHTML = "You Lose!";
-      }
-    }
-
-    function fight2() {
-      computerChoice = getComputerChoice();
-      document.getElementById("winLose").innerHTML = `you threw ${paper.value} <br> the computer threw ${computerChoice}`;
-      determineWinner2(computerChoice);
-    }
-  </script>
-  <script>
-    function useScissors() {
-      var scissors = document.getElementById('scissors').value;
-      document.getElementById("weapon").innerHTML = scissors;
-    }
-
-    function determineWinner3(computerChoice) {
-      if (computerChoice === 'rock') {
-        document.getElementById("winLose2").innerHTML = "You Lose!";
-      }
-      if (computerChoice === 'paper') {
-        document.getElementById("winLose2").innerHTML = "You Win!";
-      }
-      if (computerChoice === 'scissors') {
-        document.getElementById("winLose2").innerHTML = "You Tie!";
-      }
-    }
-
-    function fight3() {
-      computerChoice = getComputerChoice();
-      document.getElementById("winLose").innerHTML = `you threw ${scissors.value} <br> the computer threw ${computerChoice}`;
-      determineWinner3(computerChoice);
-    }
-  </script>
-
+</script>
 </header>
-
 <body>
-  <!--buttons for rock, paper, or scissors-->
-  <button class="button" onclick="laugh(),rockImg(), useRock(),fight()" id="rock" value="rock">Use Rock</button><br><br>
-  <button class="button" onclick="outstanding(),paperImg(), usePaper(),fight2()" id="paper" value="paper">Use Paper</button><br><br>
-  <button class="button" onclick="toasty(),scissorsImg(),useScissors(), fight3()" id="scissors" value="scissors">Use Scissors</button>
-  <!---"VS" font-->"
-  <img class='b' src="https://fontmeme.com/permalink/190102/3e0c9420282584a5b1aa8e833c5f1e19.png" alt="mortal-kombat-font">
-  <!--Button  imgs-->
-  <img id='rock2' class='rock' src='https://vignette.wikia.nocookie.net/fairytailfanon/images/e/e5/Fist_of_a_Thousand_Burns..jpg/revision/latest?cb=20170329062511' alt='firey fist'>
-  <img id='paper2' class='paper' src='https://anhonestcon.files.wordpress.com/2014/12/paper_fire.jpg?w=201&h=300' alt='paper hands'>
-  <img id='scissors2' class='scissors' src='https://pmcvariety.files.wordpress.com/2015/12/edward-scissorhands.jpg?w=1000&h=563&crop=1' alt='scissor hands'>
-
-  <h2>you chose <span id="weapon"> </span></h2>
-  <div id="winLose"></div>
-  <div id="winLose2"></div>
+    <button class='button' onclick='laugh(),rockImg(), useRock(),fight()'id='rock' value= 'Rock'>Use Rock</button><br><br>
+    <button class='button' onclick='outstanding(),paperImg(), usePaper(),fight2()' id='paper' value = 'Paper'>Use Paper</button><br><br>
+    <button class='button' onclick='toasty(),scissorsImg(),useScissors(), fight3()' id='scissors' value= 'Scissors'>Use Scissors</button>
+    <img  class= 'b' src='https://fontmeme.com/permalink/190102/3e0c9420282584a5b1aa8e833c5f1e19.png' alt='mortal-kombat-font'>
+    <img id= 'rock2' class = 'rock' src='https://vignette.wikia.nocookie.net/fairytailfanon/images/e/e5/Fist_of_a_Thousand_Burns..jpg/revision/latest?cb=20170329062511' alt='firey fist'>
+    <img id= 'paper2' class= 'paper' src='https://anhonestcon.files.wordpress.com/2014/12/paper_fire.jpg?w=201&h=300' alt= 'paper hands'>
+    <img id= 'scissors2' class= 'scissors' src='https://pmcvariety.files.wordpress.com/2015/12/edward-scissorhands.jpg?w=1000&h=563&crop=1' alt='scissor hands'>
+    <img id= 'computer' class= 'computer' src='https://assets3.thrillist.com/v1/image/1333843/size/tl-horizontal_main.jpg' alt='terminator robot'>
+    <h2>You Chose <span id='weapon'> </span></h2>
+    <div id='winLose'></div>
+    <div id='winLose2'></div>
+    <p>make sure you have autoplay enabled in you browser to hear the sound!</p>
 </body>
-
 </html>
